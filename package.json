@@ -1,0 +1,6 @@
+{
+  "name": "sql-escape-rooms",
+  "private": true,
+  "scripts": { "build": "node dev/build.js", "test": "node dev/build.js && node dev/test.js" },
+  "devDependencies": { "sql.js": "^1.8.0" }
+}

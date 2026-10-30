@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQL Escape Rooms</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header><a class="logo" href="./">🧩 SQL ESCAPE ROOMS</a></header>
+  <main>
+    <div class="center" style="margin-bottom:0">
+      <div class="tag">Impara SQL giocando</div>
+      <h1>Scegli la tua storia</h1>
+      <p>Ogni stanza ha un piccolo database SQLite che gira nel tuo browser. Scrivi le query, trova il codice, apri la porta.
+      Tre livelli per storia: query di base, aggregazioni, join.</p>
+    </div>
+    <div class="catalog">
+      <a class="card story-card" href="villa-nera/" data-key="sql-escape-room-v2" data-total="15">
+        <div class="tag">Gotico · Escape room</div>
+        <h2>Il Mistero di Villa Nera</h2>
+        <p>Sei chiuso in una villa maledetta: biblioteca, cantina, laboratorio segreto. Ogni stanza nasconde un codice nel suo database.</p>
+        <div class="muted">3 livelli · 15 stanze</div>
+        <div class="spacer"></div>
+        <div class="progress"><i></i></div>
+        <div class="muted progress-label">Non iniziata</div>
+      </a>
+      <a class="card story-card" href="caso-montefiori/" data-key="sql-escape-room-giallo-v1" data-total="15">
+        <div class="tag">Giallo · Investigazione</div>
+        <h2>Il Caso Montefiori</h2>
+        <p>Un antiquario è stato ucciso nel suo negozio. Interroga prove, tabulati e archivi di polizia per smascherare il colpevole.</p>
+        <div class="muted">3 livelli · 15 stanze</div>
+        <div class="spacer"></div>
+        <div class="progress"><i></i></div>
+        <div class="muted progress-label">Non iniziata</div>
+      </a>
+      <a class="card story-card" href="stazione-orione/" data-key="sql-escape-room-orione-v1" data-total="15">
+        <div class="tag">Fantascienza · Escape room</div>
+        <h2>Stazione Orione</h2>
+        <p>Anno 2147: un guasto al reattore ha sigillato la stazione spaziale. Sblocca i moduli interrogando i database di bordo e raggiungi la capsula di salvataggio.</p>
+        <div class="muted">3 livelli · 15 stanze</div>
+        <div class="spacer"></div>
+        <div class="progress"><i></i></div>
+        <div class="muted progress-label">Non iniziata</div>
+      </a>
+      <a class="card story-card" href="tesoro-del-corvo/" data-key="sql-escape-room-corvo-v1" data-total="15">
+        <div class="tag">Pirati · Avventura</div>
+        <h2>Il Tesoro di Capitan Corvo</h2>
+        <p>Naufrago su un&#39;isola dei Caraibi, devi seguire le tracce di Capitan Corvo tra relitti, taverne e grotte per trovare il suo tesoro e una barca per fuggire.</p>
+        <div class="muted">3 livelli · 15 stanze</div>
+        <div class="spacer"></div>
+        <div class="progress"><i></i></div>
+        <div class="muted progress-label">Non iniziata</div>
+      </a>
+    </div>
+  </main>
+  <script>
+    document.querySelectorAll(".story-card").forEach((a) => {
+      try {
+        const s = JSON.parse(localStorage.getItem(a.dataset.key));
+        const done = s && s.solved ? s.solved.length : 0;
+        const total = Number(a.dataset.total);
+        if (done) {
+          a.querySelector(".progress > i").style.width = (100 * done / total) + "%";
+          a.querySelector(".progress-label").textContent = done === total ? "Completata ✓" : done + " / " + total + " stanze";
+        }
+      } catch (e) {}
+    });
+  </script>
+</body>
+</html>
