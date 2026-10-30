@@ -1,5 +1,7 @@
 # SQL Escape Rooms
 
+**▶ Gioca online: <https://lucanenni.github.io/sql-escape-rooms/>**
+
 Escape room e giochi investigativi per **imparare SQL giocando**. Ogni stanza ha un piccolo database SQLite che gira interamente nel browser
 ([sql.js](https://github.com/sql-js/sql-js)): si scrivono query in un terminale, si trova il codice nascosto nei dati e si apre la porta.
 Nessun server, nessun backend.
